@@ -40,7 +40,7 @@
       }
 
       &.active::after {
-        content: '';
+        content: "";
         height: 3px;
         border-radius: 3px 3px 0 0;
         width: 100%;
@@ -54,5 +54,38 @@
 
   button {
     margin-left: auto;
+  }
+
+  button:last-child {
+    display: none;
+  }
+
+  @media (max-width: 720px) {
+    nav {
+      display: none;
+    }
+
+    button {
+      display: none;
+    }
+
+    button:last-child {
+      display: block;
+      border: none;
+      background: transparent;
+      margin-left: auto;
+
+      transition: filter 0.2s;
+
+      svg {
+        color: var(--white);
+        width: 30px;
+        height: 30px;
+      }
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
   }
 }

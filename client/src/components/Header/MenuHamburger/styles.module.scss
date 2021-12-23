@@ -1,0 +1,81 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background: var(--gray-900);
+  opacity: 0.97;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > button {
+    position: absolute;
+    border: 0;
+    background: transparent;
+    top: 1rem;
+    right: 1rem;
+
+    transition: filter 0.2s;
+    
+    svg {
+      width: 30px;
+      height: 30px;
+      color: var(--white);
+    }
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}
+
+.menuContent {
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  nav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    a {
+      display: inline-block;
+      position: relative;
+      padding: 0 0.5rem;
+      height: 2rem;
+      line-height: 2rem;
+      color: var(--gray-300);
+
+      transition: color 0.2s;
+
+      & + a {
+        margin-top: 2rem;
+      }
+
+      &:hover {
+        color: var(--white);
+      }
+
+      &.active {
+        color: var(--white);
+        font-weight: bold;
+      }
+
+      &.active::after {
+        content: "";
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        width: 100%;
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        background: var(--yellow-500);
+      }
+    }
+  }
+
+  button {
+    margin-top: 2rem;
+  }
+}
