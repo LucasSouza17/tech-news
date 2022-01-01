@@ -1,16 +1,17 @@
-import { useState } from "react";
+import Link from "next/link";
 import Modal from "react-modal";
 import { SignInButton } from "../../SignInButton";
 import { FiX } from "react-icons/fi";
 
 import styles from "./styles.module.scss";
+import { ActiveLink } from "../../ActiveLink";
 
 interface MenuHamburgerProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
 }
 
-export function MenuHamburger({isOpen, setIsOpen}: MenuHamburgerProps) {
+export function MenuHamburger({ isOpen, setIsOpen }: MenuHamburgerProps) {
   function handleCloseModal() {
     setIsOpen(false);
   }
@@ -26,10 +27,12 @@ export function MenuHamburger({isOpen, setIsOpen}: MenuHamburgerProps) {
       </button>
       <div className={styles.menuContent}>
         <nav>
-          <a className={styles.active} href="">
-            Home
-          </a>
-          <a href="">Posts</a>
+          <ActiveLink activeClassName={styles.active} href="/">
+            <a onClick={handleCloseModal}>Home</a>
+          </ActiveLink>
+          <ActiveLink activeClassName={styles.active} href="/posts">
+            <a onClick={handleCloseModal}>Posts</a>
+          </ActiveLink>
         </nav>
 
         <SignInButton />
