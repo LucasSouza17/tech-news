@@ -65,9 +65,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
+  
+  if ( slug === 'favicon.png' ) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      }
+    }
+  }
 
   const prismic = getPrismicClient();
   const response = await prismic.getByUID("post", String(slug), {});
+
 
   const post = {
     slug: slug,
