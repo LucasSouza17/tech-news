@@ -1,7 +1,4 @@
 import { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-
 import { SignInButton } from "../SignInButton";
 import { FiMenu } from "react-icons/fi";
 import styles from "./styles.module.scss";
@@ -9,8 +6,6 @@ import { MenuHamburger } from "./MenuHamburger";
 import { ActiveLink } from "../ActiveLink";
 
 export function Header() {
-  const { asPath } = useRouter();
-
   const [isOpen, setIsOpen] = useState(false);
 
   function handleOpenModal() {
